@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roy-TECXpro | Web Developer</title>
+    <meta name="description" content="Roy Nyamawi Sanga - Web Developer specializing in responsive websites, UI/UX design, and modern web technologies. Based in Malindi, Kenya.">
+    <meta name="keywords" content="web developer, web designer, React, JavaScript, HTML, CSS, UI/UX, Malindi, Kenya">
+    <meta name="author" content="Roy Nyamawi Sanga">
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-netlify-link.netlify.app">
+    <meta property="og:title" content="Roy-TECXpro | Front End Developer">
+    <meta property="og:description" content="Transforming ideas into digital reality with exceptional web development and design.">
+    <meta property="og:image" content="https://your-netlify-link.netlify.app/assets/preview-image.jpg">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://your-netlify-link.netlify.app">
+    <meta property="twitter:title" content="Roy-TECXpro | Front End Developer">
+    <meta property="twitter:description" content="Transforming ideas into digital reality with exceptional web development and design.">
+    <meta property="twitter:image" content="https://your-netlify-link.netlify.app/assets/preview-image.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Typed.js for typing effect -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <!-- AOS for scroll animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Roy Nyamawi Sanga",
+      "jobTitle": "Front End Developer",
+      "url": "https://your-netlify-link.netlify.app",
+      "sameAs": [
+        "https://instagram.com/roytecxpro.ltd",
+        "https://facebook.com/Royal Rohan",
+        "https://linkedin.com/in/roysanga",
+        "https://twitter.com/Roysanga254"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Malindi",
+        "addressCountry": "Kenya"
+      },
+      "knowsAbout": ["HTML5", "CSS3", "JavaScript", "React.js", "UI/UX Design", "Responsive Design"],
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name": "Front End Developer",
+        "occupationLocation": {
+          "@type": "City",
+          "name": "Malindi",
+          "addressCountry": "KE"
+        }
+      }
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <a href="#" class="logo">
+            <i class="fas fa-code logo-icon"></i>
+            Roy-TECXpro
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme">
+            <i class="fas fa-moon" aria-hidden="true"></i>
+        </button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="game-border">
+                <div class="pixel-corner tl"></div>
+                <div class="pixel-corner tr"></div>
+                <div class="pixel-corner bl"></div>
+                <div class="pixel-corner br"></div>
+                <div style="padding: 40px;">
+                    <h1>Transforming <span>Ideas</span> Into <span id="typed-text"></span></h1>
+                    <p>I design and develop exceptional websites that deliver quality, reliability, and outstanding user experiences.</p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">View My Work</a>
+                        <a href="#contact" class="btn btn-secondary">Hire Me</a>
+                        <a href="assets/resume.pdf" class="btn btn-outline" download>Download CV</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="particles-js"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" data-aos="fade-up">
+        <div class="section-title">
+            <h2>About Me</h2>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>&bull; Roy Nyamawi Sanga</h3>
+                <p>Front End Developer and Web Designer from Malindi-Kenya, cuurently Based in Nairobi with a passion for creating immersive digital experiences.</p>
+                <p>I specialize in transforming complex ideas into intuitive, responsive, and visually appealing websites. With over 50 completed projects, I've honed my skills in crafting user-centric solutions that exceed client expectations.</p>
+                <p>My approach combines technical expertise with creative vision, ensuring every project I work on delivers both functionality and aesthetic excellence. I'm committed to continuous learning and staying at the forefront of web development trends.</p>
+                <div class="stats">
+                    <div class="stat-box">
+                        <div class="number">50+</div>
+                        <div class="text">Projects Completed</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="number">100%</div>
+                        <div class="text">Client Satisfaction</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="number">24/7</div>
+                        <div class="text">Support Available</div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="assets/_DSC3419.jpg" alt="Roy Nyamawi Sanga - Front End Developer based in Malindi, Kenya" style="width: 100%; height: 500px; object-fit: cover; border-radius: 20px; display: block; cursor: pointer;" loading="lazy" onclick="openImageModal('assets/_DSC3419.jpg')">
+                <div class="location-box" style="text-align: center; padding: 20px; background: var(--card-bg); border-radius: 18px; margin-top: 20px; backdrop-filter: blur(10px);">
+                    <i class="fas fa-map-marker-alt" style="font-size: 3rem; color: var(--secondary); margin-bottom: 20px;" aria-hidden="true"></i>
+                    <h3>Based in Malindi, Kenya</h3>
+                    <p>Serving clients worldwide</p>
+                    <a href="https://your-netlify-link.netlify.app" class="btn btn-primary" target="_blank" rel="noopener" style="margin-top: 18px; display: inline-block;">View Live Location</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Gallery Section -->
+    <section id="gallery">
+        <div class="section-title">
+            <h2>Gallery</h2>
+        </div>
+        <div class="kaleidoscope-container">
+            <div class="kaleidoscope-card" id="kaleidoscopeCard">
+                <div class="kaleidoscope-image" style="background-image: url('assets/_DSC3410.jpg'); animation-delay: 0s;"></div>
+                <div class="kaleidoscope-image" style="background-image: url('assets/_DSC3461.jpg'); animation-delay: 0.5s;"></div>
+                <div class="kaleidoscope-image" style="background-image: url('assets/_DSC3426.jpg'); animation-delay: 1s;"></div>
+                <div class="kaleidoscope-image" style="background-image: url('assets/_DSC3446.jpg'); animation-delay: 1.5s;"></div>
+                <div class="kaleidoscope-image" style="background-image: url('assets/_DSC3432 (1).jpg'); animation-delay: 2s;"></div>
+                <div class="kaleidoscope-overlay">
+                    <h3>Kaleidoscope Gallery</h3>
+                    <p>Hover to cycle through images</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" data-aos="fade-up">
+        <div class="section-title">
+            <h2>My Skills</h2>
+        </div>
+        <div class="skills-container">
+            <div class="skill-card">
+                <i class="fab fa-html5"></i>
+                <h3>HTML5 & CSS3</h3>
+                <p>Semantic markup, responsive design, CSS animations, Flexbox, Grid, and preprocessors like SASS.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-js"></i>
+                <h3>JavaScript</h3>
+                <p>Modern ES6+ JavaScript, DOM manipulation, AJAX, and integration with RESTful APIs.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-react"></i>
+                <h3>React.js</h3>
+                <p>Building dynamic SPAs with React, component-based architecture, hooks, and state management.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Responsive Design</h3>
+                <p>Creating websites that work flawlessly across all devices with mobile-first approach.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-paint-brush"></i>
+                <h3>UI/UX Design</h3>
+                <p>User-centered design principles, wireframing, prototyping, and creating intuitive interfaces.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-bolt"></i>
+                <h3>Performance Optimization</h3>
+                <p>Optimizing websites for speed, accessibility, and SEO to ensure the best user experience.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" data-aos="fade-up">
+        <div class="section-title">
+            <h2>My Experience</h2>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Front End Developer</h3>
+                    <span class="timeline-date">2025 - Present</span>
+                    <p>Developing responsive websites and web applications using modern technologies. Collaborating with clients to deliver high-quality digital solutions.</p>
+                    <div class="timeline-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">CSS3</span>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Web Designer</h3>
+                    <span class="timeline-date">2023 - 2024</span>
+                    <p>Created user-centered designs and prototypes for various projects. Focused on UI/UX principles to enhance user experience.</p>
+                    <div class="timeline-tags">
+                        <span class="tag">Figma</span>
+                        <span class="tag">Adobe XD</span>
+                        <span class="tag">HTML/CSS</span>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Freelance Developer</h3>
+                    <span class="timeline-date">2023 - 2024</span>
+                    <p>Built custom websites for small businesses and startups. Managed full project lifecycle from design to deployment.</p>
+                    <div class="timeline-tags">
+                        <span class="tag">WordPress</span>
+                        <span class="tag">PHP</span>
+                        <span class="tag">MySQL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" data-aos="fade-up">
+        <div class="section-title">
+            <h2>Certifications</h2>
+        </div>
+        <div class="certifications-grid">
+            <div class="cert-card">
+                <i class="fab fa-google"></i>
+                <h3>Google UX Design</h3>
+                <p>Professional Certificate</p>
+                <span class="cert-date">2025</span>
+            </div>
+            <div class="cert-card">
+                <i class="fab fa-react"></i>
+                <h3>React Developer Certification</h3>
+                <p>Meta (Facebook)</p>
+                <span class="cert-date">2024</span>
+            </div>
+            <div class="cert-card">
+                <i class="fab fa-js-square"></i>
+                <h3>JavaScript Algorithms and Data Structures</h3>
+                <p>freeCodeCamp</p>
+                <span class="cert-date">2024</span>
+            </div>
+            <div class="cert-card">
+                <i class="fab fa-css3-alt"></i>
+                <h3>Responsive Web Design</h3>
+                <p>freeCodeCamp</p>
+                <span class="cert-date">2023</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" data-aos="fade-up">
+        <div class="section-title">
+            <h2>My Projects</h2>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-img" style="background-image: url('https://lauv-portfolio.vercel.app/_next/image?url=%2Fproj%2FprojectThree.png&w=1080&q=75'); background-size: cover; background-position: center; height: 250px;"></div>
+                <div class="project-info">
+                    <h3>Tours and Travel Site</h3>
+                    <p>Fully responsive online travel booking platform with user-friendly interface and secure payment options.</p>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">MongoDB</span>
+                    </div>
+                    <a href="http://moonmistadventure.netlify.app" class="btn btn-secondary" target="_blank" rel="noopener">View Live Site</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img" style="background-image: url('https://lauv-portfolio.vercel.app/_next/image?url=%2Fproj%2FprojectFour.png&w=1080&q=75'); background-size: cover; background-position: center; height: 250px;"></div>
+                <div class="project-info">
+                    <h3>E-commerce</h3>
+                    <p>Fully responsive online store with cart functionality and payment integration..</p>
+                    <div class="project-tags">
+                        <span class="tag">HTML/CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">WordPress</span>
+                    </div>
+                    <a href="http://maishsale.netlify.app" class="btn btn-secondary" target="_blank" rel="noopener">View Live Site</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img" style="background-image: url('https://lauv-portfolio.vercel.app/_next/image?url=%2Fproj%2FprojectSix.png&w=1080&q=75'); background-size: cover; background-position: center; height: 250px;"></div>
+                <div class="project-info">
+                    <h3>Kwa Ground Youth Empowerment site</h3>
+                    <p>Web application for tracking route fares, Job application, and and Job posting.</p>
+                    <div class="project-tags">
+                        <span class="tag">Vue.js</span>
+                        <span class="tag">Firebase</span>
+                        <span class="tag">Chart.js</span>
+                    </div>
+                    <a href="http://kwaground.netlify.app" class="btn btn-secondary" target="_blank" rel="noopener">View Live Site</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400'); background-size: cover; background-position: center; height: 250px;"></div>
+                <div class="project-info">
+                    <h3>Electronics Store</h3>
+                    <p>Modern e-commerce platform for electronics with responsive design and user-friendly interface.</p>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">E-commerce</span>
+                        <span class="tag">Responsive</span>
+                    </div>
+                    <a href="http://kijanaaelectronics.netlify.app" class="btn btn-secondary" target="_blank" rel="noopener">View Live Site</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400'); background-size: cover; background-position: center; height: 250px;"></div>
+                <div class="project-info">
+                    <h3>Beauty Salon</h3>
+                    <p>Elegant website for beauty services with appointment booking and service showcase.</p>
+                    <div class="project-tags">
+                        <span class="tag">HTML/CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Booking System</span>
+                    </div>
+                    <a href="http://poppychicbeauty.netlify.app" class="btn btn-secondary" target="_blank" rel="noopener">View Live Site</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" data-aos="fade-up">
+        <div class="section-title">
+            <h2>Latest Insights</h2>
+        </div>
+        <div class="blog-grid">
+            <div class="blog-card">
+                <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400');"></div>
+                <div class="blog-content">
+                    <h3>The Future of Web Development</h3>
+                    <p>Exploring emerging trends in front-end development and how they're shaping the industry.</p>
+                    <a href="#" class="btn btn-secondary">Read More</a>
+                </div>
+            </div>
+            <div class="blog-card">
+                <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400');"></div>
+                <div class="blog-content">
+                    <h3>UI/UX Best Practices</h3>
+                    <p>Essential principles for creating user-friendly interfaces that convert visitors into customers.</p>
+                    <a href="#" class="btn btn-secondary">Read More</a>
+                </div>
+            </div>
+            <div class="blog-card">
+                <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400');"></div>
+                <div class="blog-content">
+                    <h3>Optimizing Website Performance</h3>
+                    <p>Techniques to improve loading speeds and enhance user experience across all devices.</p>
+                    <a href="#" class="btn btn-secondary">Read More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <div id="modalContent">
+                <!-- Content will be populated by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content image-modal-content">
+            <span class="close" id="closeImageModal">&times;</span>
+            <img id="fullSizeImage" src="" alt="Full size image" style="max-width: 100%; max-height: 90vh; object-fit: contain;">
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" data-aos="fade-up">
+        <div class="section-title">
+            <h2>Client Testimonials</h2>
+        </div>
+        <div class="testimonials-container">
+            <div class="testimonial">
+                <p>"Roy transformed our outdated website into a modern, user-friendly platform. His attention to detail and commitment to quality exceeded our expectations. The site now converts 70% more visitors than before!"</p>
+                <div class="client">
+                    <div class="client-img" style="background: linear-gradient(135deg, #6e45e2, #88d3ce);"></div>
+                    <div class="client-info">
+                        <h4>Jimmy Baya,</h4>
+                        <p>Marketing Director, TechSolutions Ltd</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <p>"Working with Roy was a game-changer for our business. He not only delivered a stunning website but also provided valuable insights on user experience. His reliability and professionalism are unmatched."</p>
+                <div class="client">
+                    <div class="client-img" style="background: linear-gradient(135deg, #ff6b6b, #ffd166);"></div>
+                    <div class="client-info">
+                        <h4>Eddison Mambo,</h4>
+                        <p>CEO, Global Innovations</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <p>"Roy's technical expertise and creative approach resulted in a website that perfectly represents our brand. He was responsive, met all deadlines, and went above and beyond to ensure we were satisfied."</p>
+                <div class="client">
+                    <div class="client-img" style="background: linear-gradient(135deg, #1a936f, #88d3ce);"></div>
+                    <div class="client-info">
+                        <h4>Irene Ombere,</h4>
+                        <p>Founder, EcoFashion Kenya</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" data-aos="fade-up">
+        <div class="section-title">
+            <h2>Contact Me</h2>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h3>Email</h3>
+                        <p>roysanga127@gmail.com</p>
+                        <p>leeweb7315@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <h3>Phone</h3>
+                        <p>+254 740 297 140</p>
+                        <p>+254 706 573 493</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h3>Location</h3>
+                        <p>Malindi, Kenya</p>
+                    </div>
+                </div>
+                <div>
+                    <h3>Connect With Me</h3>
+                    <div class="social-links">
+                        <a href="https://instagram.com/roytecxpro.ltd" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://facebook.com/Royal Rohan" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://tiktok.com/@unleashed_zombie..20" class="social-link"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://linkedin.com/in/roysanga" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://reddit.com/u/Royal_7315" class="social-link"><i class="fab fa-reddit-alien"></i></a>
+                        <a href="https://twitter.com/Roysanga254" class="social-link"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://wa.me/254740297140" class="social-link" title="WhatsApp Roy (+254 740 297 140)"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://wa.me/254706573493" class="social-link" title="WhatsApp Roy (+254 706 573 493)"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://threads.net/@yourusername" class="social-link" title="Follow on Threads"><img src="assets/threads.jpg" alt="Threads" style="width: 20px; height: 20px; border-radius: 0;"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <div class="game-border" style="padding: 30px;">
+                    <form id="contactForm">
+                        <div style="margin-bottom: 20px;">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" placeholder="Your name" style="width: 100%; padding: 12px; background: var(--card-bg); border: none; border-radius: 8px; color: var(--light); margin-top: 8px;">
+                        </div>
+                        <div style="margin-bottom: 20px;">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="Your email" style="width: 100%; padding: 12px; background: var(--card-bg); border: none; border-radius: 8px; color: var(--light); margin-top: 8px;">
+                        </div>
+                        <div style="margin-bottom: 20px;">
+                            <label for="message">Message</label>
+                            <textarea id="message" placeholder="Your message" rows="5" style="width: 100%; padding: 12px; background: var(--card-bg); border: none; border-radius: 8px; color: var(--light); margin-top: 8px; resize: vertical;"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <div class="footer-logo">
+                    <i class="fas fa-code"></i> Roy-TECXpro
+                </div>
+                <p>Creating exceptional digital experiences through innovative web solutions.</p>
+            </div>
+            <div>
+                <h3>Quick Links</h3>
+                <ul style="list-style: none; margin-top: 15px;">
+                    <li style="margin-bottom: 10px;"><a href="#about" style="color: var(--light); text-decoration: none;">About</a></li>
+                    <li style="margin-bottom: 10px;"><a href="#skills" style="color: var(--light); text-decoration: none;">Skills</a></li>
+                    <li style="margin-bottom: 10px;"><a href="#projects" style="color: var(--light); text-decoration: none;">Projects</a></li>
+                    <li style="margin-bottom: 10px;"><a href="#contact" style="color: var(--light); text-decoration: none;">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Services</h3>
+                <ul style="list-style: none; margin-top: 15px;">
+                    <li style="margin-bottom: 10px;">Web Design</li>
+                    <li style="margin-bottom: 10px;">Front End Development</li>
+                    <li style="margin-bottom: 10px;">UI/UX Design</li>
+                    <li style="margin-bottom: 10px;">Website Maintenance</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Roy-TECXpro. All rights reserved.</p>
+            <p>Designed with <i class="fas fa-heart" style="color: var(--accent);"></i> in Malindi, Kenya</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Support Button -->
+    <button class="support-btn" id="supportBtn">
+        <i class="fas fa-hands-helping"></i> Support Roy
+    </button>
+
+    <!-- Support Modal -->
+    <div class="support-modal" id="supportModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal" aria-label="Close support modal">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+            <h2 class="modal-title">Support My Work</h2>
+            <p style="text-align: center; margin-bottom: 25px;">Your support helps me create more amazing projects and content!</p>
+            <h3 style="margin-bottom: 15px;">Select Amount (KES)</h3>
+            <div class="donation-options">
+                <div class="donation-option" data-amount="100">100</div>
+                <div class="donation-option" data-amount="500">500</div>
+                <div class="donation-option" data-amount="1000">1,000</div>
+                <div class="donation-option" data-amount="5000">5,000</div>
+                <div class="donation-option" data-amount="10000">10,000</div>
+                <div class="donation-option" data-amount="50000">50,000</div>
+                <div class="donation-option" data-amount="50000">Kichwani Wadau! 😊</div>
+            </div>
+            <h3 style="margin-bottom: 15px;">Send via M-Pesa</h3>
+            <div class="phone-numbers">
+                <div class="phone-number">
+                    <span>+254 740 297 140</span>
+                    <button class="copy-btn" data-number="0740297140">Copy</button>
+                </div>
+                <div class="phone-number">
+                    <span>+254 706 573 493</span>
+                    <button class="copy-btn" data-number="0706573493">Copy</button>
+                </div>
+            </div>
+            <p style="text-align: center; margin: 20px 0;">
+                <strong>Payment Options:</strong> M-Pesa, Airtel Money,
+            </p>
+            <div class="thank-you" id="thankYouMessage">
+                Thank you for your generous support!
+            </div>
+            <button class="btn btn-primary" style="width: 100%;" id="confirmDonation">Confirm Donation</button>
+        </div>
+    </div>
+
+    <!-- AI Assistant -->
+    <div class="ai-assistant">
+        <div class="ai-btn" id="aiBtn">
+            <i class="fas fa-robot"></i>
+        </div>
+        <div class="ai-chatbox" id="aiChatbox">
+            <div class="chat-header">
+                <i class="fas fa-robot"></i> Roy-TECXpro Assistant
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message ai">
+                    Hello! I'm Roy's AI assistant. How can I help you today? 😊
+                </div>
+                <div class="message ai">
+                    You can ask me about Roy's services, skills, availability, or how to contact him.
+                </div>
+                
+            </div>
+            <div class="chat-input">
+                <input type="text" id="userInput" placeholder="Type your message...">
+                <button id="sendMessage" aria-label="Send message"><i class="fas fa-paper-plane" aria-hidden="true"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Typing effect
+        document.addEventListener('DOMContentLoaded', function() {
+            var typed = new Typed('#typed-text', {
+                strings: ['Digital Reality', 'Modern Websites', 'Amazing Experiences'],
+                typeSpeed: 100,
+                backSpeed: 50,
+                loop: true,
+                backDelay: 2000
+            });
+        });
+    </script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    <script src="script.js"></script>
+<script>
+// Initialize EmailJS with your user ID
+emailjs.init('Mow79wXXzMPUWzj2S');
+
+// Handle contact form submission
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('contactForm');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Collect form data
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      // Prepare template params (update keys to match your EmailJS template)
+      const templateParams = {
+        from_name: name,
+        from_email: email,
+        message: message
+      };
+
+      // Send email using your service and template IDs
+      emailjs.send('service_qs8a49r', 'template_xkjt4zr', templateParams)
+        .then(function(response) {
+          alert('Message sent successfully!');
+          form.reset();
+        }, function(error) {
+          alert('Failed to send message. Please try again.');
+        });
+    });
+  }
+});
+</script>
+</body>
+</html>
