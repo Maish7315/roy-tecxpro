@@ -408,173 +408,175 @@ document.addEventListener('DOMContentLoaded', () => {
     animateProgressBars();
 });
 
-// Modern custom cursor with trailing effect
-const trailLength = 8; // Number of trail elements
-const cursors = [];
-const mouseHistory = [];
+// Modern custom cursor with trailing effect - only on desktop
+if (!('ontouchstart' in window)) {
+    const trailLength = 8; // Number of trail elements
+    const cursors = [];
+    const mouseHistory = [];
 
-// Create main cursor and trail elements
-for (let i = 0; i < trailLength; i++) {
-    const cursorElement = document.createElement('div');
-    cursorElement.className = `custom-cursor cursor-trail trail-${i}`;
-    cursorElement.style.left = '50px';
-    cursorElement.style.top = '50px';
-    cursorElement.style.opacity = (1 - i * 0.1).toString(); // Fade out trail
-    cursorElement.style.zIndex = (9999 - i).toString();
-    document.body.appendChild(cursorElement);
-    cursors.push(cursorElement);
+    // Create main cursor and trail elements
+    for (let i = 0; i < trailLength; i++) {
+        const cursorElement = document.createElement('div');
+        cursorElement.className = `custom-cursor cursor-trail trail-${i}`;
+        cursorElement.style.left = '50px';
+        cursorElement.style.top = '50px';
+        cursorElement.style.opacity = (1 - i * 0.1).toString(); // Fade out trail
+        cursorElement.style.zIndex = (9999 - i).toString();
+        document.body.appendChild(cursorElement);
+        cursors.push(cursorElement);
 
-    // Initialize mouse history
-    mouseHistory.push({ x: 50, y: 50 });
-}
-
-// Force show main cursor initially
-cursors[0].style.background = 'red';
-cursors[0].style.width = '30px';
-cursors[0].style.height = '30px';
-setTimeout(() => {
-    cursors[0].style.background = 'var(--primary)';
-    cursors[0].style.width = '20px';
-    cursors[0].style.height = '20px';
-}, 3000);
-
-let mouseX = 0;
-let mouseY = 0;
-
-document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-
-    // Add current mouse position to history
-    mouseHistory.unshift({ x: mouseX, y: mouseY });
-
-    // Keep only the required history length
-    if (mouseHistory.length > trailLength) {
-        mouseHistory.pop();
-    }
-});
-
-// Smooth cursor trail following with easing
-const updateCursorTrail = () => {
-    for (let i = 0; i < cursors.length; i++) {
-        const cursor = cursors[i];
-        const targetPos = mouseHistory[Math.min(i * 2, mouseHistory.length - 1)] || { x: 50, y: 50 };
-
-        // Different easing for each trail element
-        const easing = 0.15 - (i * 0.015); // Slower for trailing elements
-        const currentX = parseFloat(cursor.style.left) || 50;
-        const currentY = parseFloat(cursor.style.top) || 50;
-
-        const newX = currentX + (targetPos.x - currentX) * easing;
-        const newY = currentY + (targetPos.y - currentY) * easing;
-
-        cursor.style.left = Math.round(newX) + 'px';
-        cursor.style.top = Math.round(newY) + 'px';
-
-        // Dynamic sizing based on speed
-        const speed = Math.abs(targetPos.x - currentX) + Math.abs(targetPos.y - currentY);
-        const sizeMultiplier = Math.min(speed * 0.02 + 1, 1.5);
-        const baseSize = 20 - (i * 2); // Smaller for trailing elements
-        const newSize = Math.max(baseSize * sizeMultiplier, 5);
-
-        cursor.style.width = newSize + 'px';
-        cursor.style.height = newSize + 'px';
+        // Initialize mouse history
+        mouseHistory.push({ x: 50, y: 50 });
     }
 
-    requestAnimationFrame(updateCursorTrail);
-};
+    // Force show main cursor initially
+    cursors[0].style.background = 'red';
+    cursors[0].style.width = '30px';
+    cursors[0].style.height = '30px';
+    setTimeout(() => {
+        cursors[0].style.background = 'var(--primary)';
+        cursors[0].style.width = '20px';
+        cursors[0].style.height = '20px';
+    }, 3000);
 
-// Start cursor trail update loop
-updateCursorTrail();
+    let mouseX = 0;
+    let mouseY = 0;
 
-// Debug: Make sure cursors are visible
-console.log('Custom cursors created:', cursors.length);
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
 
-// Test cursor trail visibility - make all trail elements temporarily visible
-setTimeout(() => {
-    cursors.forEach((cursor, index) => {
-        cursor.style.background = index === 0 ? 'red' : `hsl(${index * 45}, 100%, 50%)`;
-        cursor.style.width = (30 - index * 2) + 'px';
-        cursor.style.height = (30 - index * 2) + 'px';
-        cursor.style.opacity = '0.8';
+        // Add current mouse position to history
+        mouseHistory.unshift({ x: mouseX, y: mouseY });
+
+        // Keep only the required history length
+        if (mouseHistory.length > trailLength) {
+            mouseHistory.pop();
+        }
     });
 
+    // Smooth cursor trail following with easing
+    const updateCursorTrail = () => {
+        for (let i = 0; i < cursors.length; i++) {
+            const cursor = cursors[i];
+            const targetPos = mouseHistory[Math.min(i * 2, mouseHistory.length - 1)] || { x: 50, y: 50 };
+
+            // Different easing for each trail element
+            const easing = 0.15 - (i * 0.015); // Slower for trailing elements
+            const currentX = parseFloat(cursor.style.left) || 50;
+            const currentY = parseFloat(cursor.style.top) || 50;
+
+            const newX = currentX + (targetPos.x - currentX) * easing;
+            const newY = currentY + (targetPos.y - currentY) * easing;
+
+            cursor.style.left = Math.round(newX) + 'px';
+            cursor.style.top = Math.round(newY) + 'px';
+
+            // Dynamic sizing based on speed
+            const speed = Math.abs(targetPos.x - currentX) + Math.abs(targetPos.y - currentY);
+            const sizeMultiplier = Math.min(speed * 0.02 + 1, 1.5);
+            const baseSize = 20 - (i * 2); // Smaller for trailing elements
+            const newSize = Math.max(baseSize * sizeMultiplier, 5);
+
+            cursor.style.width = newSize + 'px';
+            cursor.style.height = newSize + 'px';
+        }
+
+        requestAnimationFrame(updateCursorTrail);
+    };
+
+    // Start cursor trail update loop
+    updateCursorTrail();
+
+    // Debug: Make sure cursors are visible
+    console.log('Custom cursors created:', cursors.length);
+
+    // Test cursor trail visibility - make all trail elements temporarily visible
     setTimeout(() => {
         cursors.forEach((cursor, index) => {
-            cursor.style.background = index === 0 ? 'var(--primary)' : `rgba(110, 69, 226, ${0.8 - index * 0.1})`;
-            cursor.style.width = (20 - index * 2) + 'px';
-            cursor.style.height = (20 - index * 2) + 'px';
-            cursor.style.opacity = (1 - index * 0.1).toString();
+            cursor.style.background = index === 0 ? 'red' : `hsl(${index * 45}, 100%, 50%)`;
+            cursor.style.width = (30 - index * 2) + 'px';
+            cursor.style.height = (30 - index * 2) + 'px';
+            cursor.style.opacity = '0.8';
         });
-    }, 2000);
-}, 1000);
 
-// Cursor interactions - only affect main cursor
-document.addEventListener('mousedown', () => {
-    cursors[0].classList.add('click');
-});
-
-document.addEventListener('mouseup', () => {
-    cursors[0].classList.remove('click');
-});
-
-document.addEventListener('mouseenter', () => {
-    cursors.forEach(cursor => cursor.style.opacity = '1');
-}, true);
-
-document.addEventListener('mouseleave', () => {
-    cursors.forEach(cursor => cursor.style.opacity = '0');
-}, true);
-
-// Enhanced hover effects for interactive elements - only main cursor
-const cursorInteractiveElements = document.querySelectorAll('a, button, .btn, .gallery-item, .project-card, .blog-card, .skill-card, input, textarea');
-
-cursorInteractiveElements.forEach(el => {
-    el.addEventListener('mouseenter', () => {
-        cursors[0].classList.add('hover');
-        // Add glow effect to trail cursors on hover
-        for (let i = 1; i < Math.min(4, cursors.length); i++) {
-            cursors[i].style.boxShadow = '0 0 10px rgba(255, 107, 107, 0.3)';
-        }
-    });
-
-    el.addEventListener('mouseleave', () => {
-        cursors[0].classList.remove('hover');
-        // Remove glow effect from trail cursors
-        for (let i = 1; i < cursors.length; i++) {
-            cursors[i].style.boxShadow = 'none';
-        }
-    });
-});
-
-// Creative click ripple effect with enhanced trail interaction
-document.addEventListener('click', (e) => {
-    const ripple = document.createElement('div');
-    ripple.className = 'click-ripple';
-    ripple.style.left = e.clientX + 'px';
-    ripple.style.top = e.clientY + 'px';
-    document.body.appendChild(ripple);
-
-    // Create additional ripple effects for trail cursors
-    for (let i = 0; i < Math.min(3, cursors.length); i++) {
         setTimeout(() => {
-            const trailRipple = document.createElement('div');
-            trailRipple.className = 'click-ripple trail-ripple';
-            trailRipple.style.left = e.clientX + (Math.random() - 0.5) * 20 + 'px';
-            trailRipple.style.top = e.clientY + (Math.random() - 0.5) * 20 + 'px';
-            trailRipple.style.opacity = (0.5 - i * 0.15).toString();
-            document.body.appendChild(trailRipple);
+            cursors.forEach((cursor, index) => {
+                cursor.style.background = index === 0 ? 'var(--primary)' : `rgba(110, 69, 226, ${0.8 - index * 0.1})`;
+                cursor.style.width = (20 - index * 2) + 'px';
+                cursor.style.height = (20 - index * 2) + 'px';
+                cursor.style.opacity = (1 - index * 0.1).toString();
+            });
+        }, 2000);
+    }, 1000);
 
+    // Cursor interactions - only affect main cursor
+    document.addEventListener('mousedown', () => {
+        cursors[0].classList.add('click');
+    });
+
+    document.addEventListener('mouseup', () => {
+        cursors[0].classList.remove('click');
+    });
+
+    document.addEventListener('mouseenter', () => {
+        cursors.forEach(cursor => cursor.style.opacity = '1');
+    }, true);
+
+    document.addEventListener('mouseleave', () => {
+        cursors.forEach(cursor => cursor.style.opacity = '0');
+    }, true);
+
+    // Enhanced hover effects for interactive elements - only main cursor
+    const cursorInteractiveElements = document.querySelectorAll('a, button, .btn, .gallery-item, .project-card, .blog-card, .skill-card, input, textarea');
+
+    cursorInteractiveElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            cursors[0].classList.add('hover');
+            // Add glow effect to trail cursors on hover
+            for (let i = 1; i < Math.min(4, cursors.length); i++) {
+                cursors[i].style.boxShadow = '0 0 10px rgba(255, 107, 107, 0.3)';
+            }
+        });
+
+        el.addEventListener('mouseleave', () => {
+            cursors[0].classList.remove('hover');
+            // Remove glow effect from trail cursors
+            for (let i = 1; i < cursors.length; i++) {
+                cursors[i].style.boxShadow = 'none';
+            }
+        });
+    });
+
+    // Creative click ripple effect with enhanced trail interaction
+    document.addEventListener('click', (e) => {
+        const ripple = document.createElement('div');
+        ripple.className = 'click-ripple';
+        ripple.style.left = e.clientX + 'px';
+        ripple.style.top = e.clientY + 'px';
+        document.body.appendChild(ripple);
+
+        // Create additional ripple effects for trail cursors
+        for (let i = 0; i < Math.min(3, cursors.length); i++) {
             setTimeout(() => {
-                trailRipple.remove();
-            }, 400);
-        }, i * 50);
-    }
+                const trailRipple = document.createElement('div');
+                trailRipple.className = 'click-ripple trail-ripple';
+                trailRipple.style.left = e.clientX + (Math.random() - 0.5) * 20 + 'px';
+                trailRipple.style.top = e.clientY + (Math.random() - 0.5) * 20 + 'px';
+                trailRipple.style.opacity = (0.5 - i * 0.15).toString();
+                document.body.appendChild(trailRipple);
 
-    setTimeout(() => {
-        ripple.remove();
-    }, 600);
-});
+                setTimeout(() => {
+                    trailRipple.remove();
+                }, 400);
+            }, i * 50);
+        }
+
+        setTimeout(() => {
+            ripple.remove();
+        }, 600);
+    });
+}
 
 if (localStorage.getItem('theme') === 'light') {
     body.classList.add('light-mode');
