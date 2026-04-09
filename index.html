@@ -204,31 +204,36 @@
             <p>Showcasing my work in web development and design</p>
         </div>
         <div class="portfolio-gallery">
-            <div class="gallery-item" onclick="openImageModal('assets/_DSC3410.jpg')" style="background-image: url('assets/_DSC3410.jpg');">
+            <div class="gallery-item" onclick="openImageModal('assets/_DSC3410.jpg')">
+                <img src="assets/_DSC3410.jpg" alt="Web Development" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
                 <div class="gallery-overlay">
                     <h4>Web Development</h4>
                     <p>Modern responsive websites</p>
                 </div>
             </div>
-            <div class="gallery-item" onclick="openImageModal('assets/_DSC3461.jpg')" style="background-image: url('assets/_DSC3461.jpg');">
+            <div class="gallery-item" onclick="openImageModal('assets/_DSC3461.jpg')">
+                <img src="assets/_DSC3461.jpg" alt="UI/UX Design" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
                 <div class="gallery-overlay">
                     <h4>UI/UX Design</h4>
                     <p>User-centered design solutions</p>
                 </div>
             </div>
-            <div class="gallery-item" onclick="openImageModal('assets/_DSC3426.jpg')" style="background-image: url('assets/_DSC3426.jpg');">
+            <div class="gallery-item" onclick="openImageModal('assets/_DSC3426.jpg')">
+                <img src="assets/_DSC3426.jpg" alt="Mobile-First" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
                 <div class="gallery-overlay">
                     <h4>Mobile-First</h4>
                     <p>Responsive design across all devices</p>
                 </div>
             </div>
-            <div class="gallery-item" onclick="openImageModal('assets/_DSC3446.jpg')" style="background-image: url('assets/_DSC3446.jpg');">
+            <div class="gallery-item" onclick="openImageModal('assets/_DSC3446.jpg')">
+                <img src="assets/_DSC3446.jpg" alt="E-commerce" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
                 <div class="gallery-overlay">
                     <h4>E-commerce</h4>
                     <p>Complete online store solutions</p>
                 </div>
             </div>
-            <div class="gallery-item" onclick="openImageModal('assets/_DSC3432 (1).jpg')" style="background-image: url('assets/_DSC3432 (1).jpg');">
+            <div class="gallery-item" onclick="openImageModal('assets/_DSC3432 (1).jpg')">
+                <img src="assets/_DSC3432 (1).jpg" alt="Brand Identity" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
                 <div class="gallery-overlay">
                     <h4>Brand Identity</h4>
                     <p>Visual identity and branding</p>
@@ -943,25 +948,93 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', function(e) {
       e.preventDefault();
       // Collect form data
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const message = document.getElementById('message').value;
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
 
-      // Prepare template params (update keys to match your EmailJS template)
-      const templateParams = {
-        from_name: name,
-        from_email: email,
-        message: message
-      };
+      // Validation
+      let isValid = true;
+      const nameInput = document.getElementById('name');
+      const emailInput = document.getElementById('email');
+      const messageInput = document.getElementById('message');
 
-      // Send email using your service and template IDs
-      emailjs.send('service_qs8a49r', 'template_xkjt4zr', templateParams)
-        .then(function(response) {
-          alert('Message sent successfully!');
-          form.reset();
-        }, function(error) {
-          alert('Failed to send message. Please try again.');
-        });
+      function showError(input, message) {
+        const formGroup = input.parentElement;
+        let error = formGroup.querySelector('.error-message');
+        if (!error) {
+          error = document.createElement('div');
+          error.className = 'error-message';
+          error.style.color = 'var(--accent)';
+          error.style.fontSize = '0.9rem';
+          error.style.marginTop = '5px';
+          formGroup.appendChild(error);
+        }
+        error.textContent = message;
+        input.style.borderColor = 'var(--accent)';
+      }
+
+      function hideError(input) {
+        const formGroup = input.parentElement;
+        const error = formGroup.querySelector('.error-message');
+        if (error) {
+          error.remove();
+        }
+        input.style.borderColor = '';
+      }
+
+      function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+      }
+
+      if (name === '') {
+        showError(nameInput, 'Name is required');
+        isValid = false;
+      } else {
+        hideError(nameInput);
+      }
+      if (email === '') {
+        showError(emailInput, 'Email is required');
+        isValid = false;
+      } else if (!validateEmail(email)) {
+        showError(emailInput, 'Please enter a valid email');
+        isValid = false;
+      } else {
+        hideError(emailInput);
+      }
+      if (message === '') {
+        showError(messageInput, 'Message is required');
+        isValid = false;
+      } else {
+        hideError(messageInput);
+      }
+
+      if (isValid) {
+        // Success animation
+        const submitBtn = form.querySelector('button[type="submit"]');
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+
+        // Prepare template params (update keys to match your EmailJS template)
+        const templateParams = {
+          from_name: name,
+          from_email: email,
+          message: message
+        };
+
+        // Send email using your service and template IDs
+        emailjs.send('service_qs8a49r', 'template_xkjt4zr', templateParams)
+          .then(function(response) {
+            alert('Thank you for your message! Roy will get back to you soon.');
+            form.reset();
+            submitBtn.textContent = 'Send Message';
+            submitBtn.disabled = false;
+          }, function(error) {
+            alert('Failed to send message. Please try again.');
+            submitBtn.textContent = 'Send Message';
+            submitBtn.disabled = false;
+          });
+      }
     });
   }
 });

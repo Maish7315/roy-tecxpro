@@ -10,7 +10,8 @@ const navUl = document.querySelector('nav ul');
 
 // Only add event listeners if elements exist (for mobile devices)
 if (hamburger && navUl) {
-    hamburger.addEventListener('click', () => {
+    hamburger.addEventListener('pointerdown', (e) => {
+        e.preventDefault();
         hamburger.classList.toggle('active');
         navUl.classList.toggle('active');
     });
@@ -526,9 +527,9 @@ document.addEventListener('mouseleave', () => {
 }, true);
 
 // Enhanced hover effects for interactive elements - only main cursor
-const interactiveElements = document.querySelectorAll('a, button, .btn, .gallery-item, .project-card, .blog-card, .skill-card, input, textarea');
+const cursorInteractiveElements = document.querySelectorAll('a, button, .btn, .gallery-item, .project-card, .blog-card, .skill-card, input, textarea');
 
-interactiveElements.forEach(el => {
+cursorInteractiveElements.forEach(el => {
     el.addEventListener('mouseenter', () => {
         cursors[0].classList.add('hover');
         // Add glow effect to trail cursors on hover
@@ -591,41 +592,7 @@ themeToggle.addEventListener('click', () => {
     }
 });
 
-// Particles Background
-particlesJS('particles-js', {
-    particles: {
-        number: { value: 80, density: { enable: true, value_area: 800 } },
-        color: { value: "#6e45e2" },
-        shape: { type: "circle" },
-        opacity: { value: 0.5, random: true },
-        size: { value: 3, random: true },
-        line_linked: {
-            enable: true,
-            distance: 150,
-            color: "#88d3ce",
-            opacity: 0.3,
-            width: 1
-        },
-        move: {
-            enable: true,
-            speed: 2,
-            direction: "none",
-            random: true,
-            straight: false,
-            out_mode: "out",
-            bounce: false
-        }
-    },
-    interactivity: {
-        detect_on: "canvas",
-        events: {
-            onhover: { enable: true, mode: "repulse" },
-            onclick: { enable: true, mode: "push" },
-            resize: true
-        }
-    },
-    retina_detect: true
-});
+
 
 // Scroll to Top
 const scrollTopBtn = document.getElementById('scrollTop');
@@ -641,31 +608,34 @@ scrollTopBtn.addEventListener('click', () => {
 });
 
 // Support Modal
-const supportBtn = document.getElementById('supportBtn');
 const footerSupportBtn = document.getElementById('footerSupportBtn');
 const supportModal = document.getElementById('supportModal');
 const closeModal = document.getElementById('closeModal');
 const donationOptions = document.querySelectorAll('.donation-option');
 const copyBtns = document.querySelectorAll('.copy-btn');
-const confirmDonation = document.getElementById('confirmDonation');
 const thankYouMessage = document.getElementById('thankYouMessage');
 
-supportBtn.addEventListener('click', () => {
-    supportModal.classList.add('active');
-});
+if (footerSupportBtn) {
+    footerSupportBtn.addEventListener('pointerdown', (e) => {
+        e.preventDefault();
+        supportModal.classList.add('active');
+    });
+}
 
-footerSupportBtn.addEventListener('click', () => {
-    supportModal.classList.add('active');
-});
-closeModal.addEventListener('click', () => {
-    supportModal.classList.remove('active');
-});
+if (closeModal) {
+    closeModal.addEventListener('pointerdown', (e) => {
+        e.preventDefault();
+        supportModal.classList.remove('active');
+    });
+}
+
 donationOptions.forEach(option => {
     option.addEventListener('click', () => {
         donationOptions.forEach(opt => opt.classList.remove('active'));
         option.classList.add('active');
     });
 });
+
 copyBtns.forEach(btn => {
     btn.addEventListener('click', () => {
         const number = btn.getAttribute('data-number');
@@ -676,13 +646,7 @@ copyBtns.forEach(btn => {
         }, 2000);
     });
 });
-confirmDonation.addEventListener('click', () => {
-    thankYouMessage.style.display = 'block';
-    setTimeout(() => {
-        supportModal.classList.remove('active');
-        thankYouMessage.style.display = 'none';
-    }, 3000);
-});
+
 window.addEventListener('click', (e) => {
     if (e.target === supportModal) {
         supportModal.classList.remove('active');
@@ -695,7 +659,8 @@ const aiChatbox = document.getElementById('aiChatbox');
 const chatMessages = document.getElementById('chatMessages');
 const userInput = document.getElementById('userInput');
 const sendMessage = document.getElementById('sendMessage');
-aiBtn.addEventListener('click', () => {
+aiBtn.addEventListener('pointerdown', (e) => {
+    e.preventDefault();
     aiChatbox.classList.toggle('active');
 });
 function addMessage(text, isUser = false) {
@@ -790,42 +755,7 @@ if (contactForm) {
         });
     });
 
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        let isValid = true;
 
-        if (nameInput.value.trim() === '') {
-            showError(nameInput, 'Name is required');
-            isValid = false;
-        }
-        if (emailInput.value.trim() === '') {
-            showError(emailInput, 'Email is required');
-            isValid = false;
-        } else if (!validateEmail(emailInput.value)) {
-            showError(emailInput, 'Please enter a valid email');
-            isValid = false;
-        }
-        if (messageInput.value.trim() === '') {
-            showError(messageInput, 'Message is required');
-            isValid = false;
-        }
-
-        if (isValid) {
-            // Success animation
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-
-            // Simulate sending (replace with actual EmailJS call)
-            setTimeout(() => {
-                alert('Thank you for your message! Roy will get back to you soon.');
-                contactForm.reset();
-                submitBtn.textContent = 'Send Message';
-                submitBtn.disabled = false;
-                [nameInput, emailInput, messageInput].forEach(hideError);
-            }, 2000);
-        }
-    });
 }
 // Project Modal
 const projectModal = document.getElementById('projectModal');

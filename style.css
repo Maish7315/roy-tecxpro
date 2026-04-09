@@ -990,8 +990,6 @@ section {
     cursor: pointer;
     transition: var(--transition);
     box-shadow: var(--shadow);
-    background-size: cover;
-    background-position: center;
 }
 
 .gallery-item:hover {
@@ -1883,6 +1881,20 @@ body.light-mode .chat-input input {
         padding: 1rem 5%;
         position: relative;
         min-height: 70px;
+    }
+
+    /* AI Chatbox responsive */
+    .ai-chatbox {
+        width: 90vw !important;
+        height: 400px !important;
+        right: -20px !important;
+    }
+
+    /* Support Modal responsive */
+    .support-modal .modal-content {
+        width: 95% !important;
+        max-width: none !important;
+        padding: 30px !important;
     }
 
     .logo {
