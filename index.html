@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/preview-image.jpg" type="image/jpg">
     <!-- Typed.js for typing effect -->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <!-- AOS for scroll animations -->
@@ -117,9 +118,12 @@
                         <a href="#contact" class="btn btn-secondary" id="hireMeBtn">
                             <i class="fas fa-handshake" style="margin-right: 8px;"></i>Let's Work Together
                         </a>
-                        <button class="btn btn-outline" id="viewCVBtn">
-                            <i class="fas fa-file-pdf" style="margin-right: 8px;"></i>View CV
-                        </button>
+                         <button class="btn btn-outline" id="viewCVBtn">
+                             <i class="fas fa-file-pdf" style="margin-right: 8px;"></i>View CV
+                         </button>
+                         <button class="btn btn-outline" id="viewCertificateBtn">
+                             <i class="fas fa-certificate" style="margin-right: 8px;"></i>View Professional Certificate
+                         </button>
                     </div>
                     <div class="hero-stats">
                         <div class="hero-stat">
@@ -380,6 +384,12 @@
                 <p>freeCodeCamp</p>
                 <span class="cert-date">2023</span>
             </div>
+            <div class="cert-card" onclick="openImageModal('assets/certificate.webp')" style="cursor: pointer;">
+                <img src="assets/certificate.webp" alt="Certificate" style="width: 60px; height: 60px; object-fit: contain; border-radius: 8px;">
+                <h3>Professional Certificate</h3>
+                <p>View Full Certificate</p>
+                <span class="cert-date">2024</span>
+            </div>
         </div>
     </section>
 
@@ -570,11 +580,9 @@
     </div>
 
     <!-- Image Modal -->
-    <div id="imageModal" class="modal">
-        <div class="modal-content image-modal-content">
-            <span class="close" id="closeImageModal">&times;</span>
-            <img id="fullSizeImage" src="" alt="Full size image" style="max-width: 100%; max-height: 90vh; object-fit: contain;">
-        </div>
+    <div id="imageModal" class="modal image-modal">
+        <span class="close" id="closeImageModal">&times;</span>
+        <img id="fullSizeImage" src="" alt="Full size image" style="display: block; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 95vw; max-width: 1200px; height: auto; max-height: 95vh; object-fit: contain; z-index: 1001;">
     </div>
 
     <!-- Blog Post Modal -->
@@ -641,25 +649,30 @@
                     </div>
                 </div>
 
-                <div class="cv-section">
-                    <h3><i class="fas fa-graduation-cap" style="margin-right: 10px;"></i>Education & Certifications</h3>
-                    <div class="cv-item">
-                        <h4>React Developer Certification</h4>
-                        <p class="cv-subtitle">Meta (Facebook) | 2024</p>
-                    </div>
-                    <div class="cv-item">
-                        <h4>JavaScript Algorithms and Data Structures</h4>
-                        <p class="cv-subtitle">freeCodeCamp | 2024</p>
-                    </div>
-                    <div class="cv-item">
-                        <h4>Google UX Design Professional Certificate</h4>
-                        <p class="cv-subtitle">Google | 2025</p>
-                    </div>
-                    <div class="cv-item">
-                        <h4>Responsive Web Design Certification</h4>
-                        <p class="cv-subtitle">freeCodeCamp | 2023</p>
-                    </div>
-                </div>
+                 <div class="cv-section">
+                     <h3><i class="fas fa-graduation-cap" style="margin-right: 10px;"></i>Education & Certifications</h3>
+                     <div class="cv-item">
+                         <h4>React Developer Certification</h4>
+                         <p class="cv-subtitle">Meta (Facebook) | 2024</p>
+                     </div>
+                     <div class="cv-item">
+                         <h4>JavaScript Algorithms and Data Structures</h4>
+                         <p class="cv-subtitle">freeCodeCamp | 2024</p>
+                     </div>
+                     <div class="cv-item">
+                         <h4>Google UX Design Professional Certificate</h4>
+                         <p class="cv-subtitle">Google | 2025</p>
+                     </div>
+                     <div class="cv-item">
+                         <h4>Responsive Web Design Certification</h4>
+                         <p class="cv-subtitle">freeCodeCamp | 2023</p>
+                     </div>
+                     <div class="cv-item">
+                         <h4>Professional Certificate</h4>
+                         <p class="cv-subtitle">View Certificate | 2024</p>
+                         <img src="assets/certificate.webp" alt="Certificate" style="width: 100%; max-width: 400px; height: auto; margin-top: 10px; border-radius: 8px; cursor: pointer;" onclick="openImageModal('assets/certificate.webp')">
+                     </div>
+                 </div>
 
                 <div class="cv-section">
                     <h3><i class="fas fa-trophy" style="margin-right: 10px;"></i>Key Achievements</h3>

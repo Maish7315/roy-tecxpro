@@ -108,6 +108,10 @@ function openImageModal(imageSrc) {
     imageModal.style.display = 'block';
 }
 
+fullSizeImage.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+});
+
 closeImageModal.addEventListener('click', () => {
     imageModal.style.display = 'none';
 });
@@ -242,12 +246,17 @@ window.addEventListener('click', (e) => {
 // CV Modal
 const cvModal = document.getElementById('cvModal');
 const viewCVBtn = document.getElementById('viewCVBtn');
+const viewCertificateBtn = document.getElementById('viewCertificateBtn');
 const closeCVModal = document.getElementById('closeCVModal');
 const downloadCVBtn = document.getElementById('downloadCVBtn');
 const printCVBtn = document.getElementById('printCVBtn');
 
 viewCVBtn.addEventListener('click', () => {
     cvModal.style.display = 'block';
+});
+
+viewCertificateBtn.addEventListener('click', () => {
+    openImageModal('assets/certificate.webp');
 });
 
 closeCVModal.addEventListener('click', () => {

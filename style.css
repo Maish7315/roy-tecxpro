@@ -1123,11 +1123,15 @@ section {
     color: var(--accent);
 }
 
-.image-modal-content {
-    max-width: 90vw;
-    max-height: 90vh;
-    padding: 20px;
-    text-align: center;
+.image-modal {
+    background-color: transparent;
+}
+
+.image-modal .close {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1002;
 }
 
 .blog-modal-content {
