@@ -22,7 +22,7 @@ export default function Process() {
                 className={`relative grid gap-4 md:grid-cols-2 ${isRight ? '' : ''}`}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0 }}
                 transition={{ delay: index * 0.07, duration: 0.58 }}
               >
                 <div className={isRight ? 'hidden md:block' : ''} />

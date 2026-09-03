@@ -18,7 +18,7 @@ export default function SectionShell({ id, eyebrow, title, copy, children, class
       variants={variants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.16 }}
+      viewport={{ once: true, amount: 0 }}
     >
       <div className="container-shell">
         {(eyebrow || title || copy) && (

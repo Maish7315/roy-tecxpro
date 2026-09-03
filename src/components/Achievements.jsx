@@ -22,7 +22,7 @@ export default function Achievements() {
               className="glass-card interactive-card rounded-[1.75rem] p-6"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0 }}
               transition={{ delay: index * 0.07, duration: 0.52 }}
               whileHover={{ y: -6 }}
             >

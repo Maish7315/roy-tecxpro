@@ -97,7 +97,7 @@ export default function Contact() {
           className="glass-panel rounded-[2rem] p-6 sm:p-8"
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0 }}
           transition={{ duration: 0.6 }}
         >
           <div className="grid gap-5 sm:grid-cols-2">

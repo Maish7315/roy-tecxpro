@@ -43,7 +43,7 @@ export default function Skills() {
               className="glass-card interactive-card rounded-[1.5rem] p-5"
               initial={{ opacity: 0, y: 22 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0 }}
               transition={{ delay: index * 0.04, duration: 0.46 }}
               whileHover={{ y: -5 }}
             >
@@ -58,7 +58,7 @@ export default function Skills() {
                   className="h-full rounded-full bg-gradient-to-r from-cyan via-cobalt to-violet"
                   initial={{ width: 0 }}
                   whileInView={{ width: `${skill.level}%` }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, amount: 0 }}
                   transition={{ delay: 0.2 + index * 0.04, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
                 />
               </div>

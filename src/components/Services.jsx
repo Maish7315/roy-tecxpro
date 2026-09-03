@@ -22,7 +22,7 @@ export default function Services() {
               className="glass-card interactive-card group relative overflow-hidden rounded-[1.75rem] p-6"
               initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0 }}
               transition={{ delay: index * 0.06, duration: 0.55 }}
               whileHover={{ y: -8 }}
             >

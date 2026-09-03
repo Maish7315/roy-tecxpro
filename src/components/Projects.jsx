@@ -23,7 +23,7 @@ export default function Projects() {
             className="glass-panel interactive-card group overflow-hidden rounded-[2rem]"
             initial={{ opacity: 0, y: 34 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0 }}
             transition={{ delay: index * 0.08, duration: 0.65 }}
             whileHover={{ y: -8 }}
           >
