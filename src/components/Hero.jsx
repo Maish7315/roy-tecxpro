@@ -130,7 +130,7 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          <motion.div style={{ y: portraitY }} className="relative lg:pl-6">
+          <motion.div style={{ y: portraitY }} className="hero-portrait-wrapper relative lg:pl-6">
             <div className="absolute -left-10 top-12 hidden h-48 w-48 rounded-full bg-violet/20 blur-3xl lg:block" />
             <div className="absolute -right-4 bottom-0 h-72 w-72 rounded-full bg-cyan/20 blur-3xl" />
 
@@ -170,7 +170,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="relative z-10 border-y border-white/10 bg-white/[0.035] py-4 backdrop-blur-xl">
+      <div className="relative z-10 overflow-hidden border-y border-white/10 bg-white/[0.035] py-4 backdrop-blur-xl">
         <div className="marquee-track gap-3">
           {[...technologyStrip, ...technologyStrip].map((item, index) => (
             <span key={`${item}-${index}`} className="tag-chip mx-2">

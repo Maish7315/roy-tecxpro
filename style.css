@@ -280,7 +280,8 @@ img {
 }
 
 @media (pointer: coarse) {
-  .custom-cursor {
+  .custom-cursor,
+  .mouse-glow {
     display: none;
   }
 }
@@ -294,5 +295,13 @@ img {
   .premium-button-primary,
   .premium-button-ghost {
     width: 100%;
+  }
+
+  .aurora-line {
+    inset: auto -5% 8% -5%;
+  }
+
+  .hero-portrait-wrapper {
+    overflow: hidden;
   }
 }
