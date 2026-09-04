@@ -3,14 +3,38 @@ import { motion } from 'framer-motion';
 import { ArrowRight, CalendarDays, Instagram, Linkedin, Mail, MapPin, MessageCircle, Phone, Send, Twitter } from 'lucide-react';
 import SectionShell from './SectionShell';
 import { profile, socials } from '../data/portfolio';
+import emailjs from '@emailjs/browser';
+
+const EMAILJS_SERVICE_ID = 'service_g2h9628';
+const EMAILJS_TEMPLATE_ID = 'template_xkjt4zr';
+const EMAILJS_PUBLIC_KEY = 'Mow79wXXzMPUWzj2S';
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    setSent(true);
-    window.setTimeout(() => setSent(false), 3600);
+    setSending(true);
+    setSubmitError('');
+
+    try {
+      await emailjs.sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        event.target,
+        EMAILJS_PUBLIC_KEY
+      );
+      setSent(true);
+      window.setTimeout(() => setSent(false), 3600);
+      event.target.reset();
+    } catch (error) {
+      setSent(false);
+      setSubmitError('Failed to send message. Please try again later.');
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -130,8 +154,10 @@ export default function Contact() {
             </label>
           </div>
 
-          <button type="submit" className="premium-button-primary mt-6 w-full">
-            {sent ? (
+          <button type="submit" className="premium-button-primary mt-6 w-full" disabled={sending}>
+            {sending ? (
+              'Sending...'
+            ) : sent ? (
               <>
                 Message Ready
                 <CalendarDays size={18} />
@@ -144,15 +170,16 @@ export default function Contact() {
             )}
           </button>
 
-          <div className="mt-6 rounded-3xl border border-white/10 bg-white/[0.045] p-5">
-            <div className="flex items-start gap-3">
-              <ArrowRight className="mt-1 text-cyan" size={18} />
-              <p className="text-sm leading-7 text-steel">
-                Frontend-only form ready for integration with EmailJS, Formspree, a serverless
-                function, or your preferred CRM.
-              </p>
+          {sent && (
+            <div className="mt-4 rounded-3xl border border-cyan/30 bg-cyan/10 p-4 text-sm text-mist">
+              Message sent to Roy successfully! Please wait for a reply via email. Thank you.
             </div>
-          </div>
+          )}
+          {submitError && !sent && (
+            <div className="mt-4 rounded-3xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-mist">
+              {submitError}
+            </div>
+          )}
         </motion.form>
       </div>
     </SectionShell>
